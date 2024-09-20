@@ -1,3 +1,4 @@
+from typing import List
 from selenium.common import NoSuchElementException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -19,7 +20,7 @@ class BasePage:
     def _find(self, locator: tuple) -> WebElement:
         return self._driver.find_element(*locator)
 
-    def _find_elements(self, locator: tuple) -> list[WebElement]:
+    def _find_elements(self, locator: tuple) -> List[WebElement]:
         self._wait_until_element_is_visible(locator)
         return self._driver.find_elements(*locator)
 
